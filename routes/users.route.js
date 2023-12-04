@@ -16,11 +16,11 @@ userRoutes.get("/", async(req,res)=>{
 })
 
 userRoutes.post("/add", async(req,res)=>{
-    const {name, email,phone,lable}= req.body;
+    const {name, email,phone,label}= req.body;
     try{
 
         let newUser = new userModal({
-            name,email,phone,lable,booked_slots:[]
+            name,email,phone,label,booked_slots:[]
         })
         await newUser.save()
         res.status(200).send({"msg":"New User has been added","newUser":req.body})
